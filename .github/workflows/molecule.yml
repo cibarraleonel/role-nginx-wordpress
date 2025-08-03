@@ -18,10 +18,9 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install system dependencies
+      - name: Install Docker
         run: |
-          sudo apt-get update
-          sudo apt-get install -y docker.io python3-pip
+          curl -fsSL https://get.docker.com | sudo bash
 
       - name: Install Ansible and Molecule
         run: |
