@@ -6,7 +6,7 @@
   hosts: all
   become: true
   roles:
-    - role: .
+    - role: ../../..
   vars:
     mysql_databases:
       - name: wordpress
