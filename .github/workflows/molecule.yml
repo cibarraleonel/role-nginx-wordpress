@@ -18,11 +18,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install Docker
-        run: |
-          curl -fsSL https://get.docker.com | sudo bash
-
-      - name: Install Ansible and Molecule
+      - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
           pip install ansible "molecule<25.0" molecule-docker ansible-lint
@@ -32,5 +28,4 @@ jobs:
           ansible-galaxy install -r molecule/default/requirements.yml
 
       - name: Run Molecule tests
-        run: |
-          molecule test
+        run: molecule test
