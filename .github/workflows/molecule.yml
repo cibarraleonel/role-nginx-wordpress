@@ -29,3 +29,8 @@ jobs:
 
       - name: Run Molecule tests
         run: molecule test
+
+      - name: Publish role to Ansible Galaxy
+        if: github.ref == 'refs/heads/main' && success()
+        run: |
+          ansible-galaxy role import cibarraleonel nginx_wordpress --api-key ${{ secrets.ANSIBLE_GALAXY_TOKEN }}
